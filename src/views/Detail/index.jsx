@@ -11,7 +11,7 @@ import VerticalTabs from '../../components/VerticalTabs';
 class Detail extends Component {
     render() {
         const { hinhAnh, maPhim, moTa, tenPhim } = this.props.movieDetail;
-        const { detail, detailContent } = this.props.classes;
+        const { detail, detailContent, boxButton } = this.props.classes;
         return (
             <Container>
                 <Header />
@@ -37,15 +37,17 @@ class Detail extends Component {
                                     {moTa}
                                 </Typography>
                             </CardContent>
-                            <Button className="button" size="small" color="primary">
-                                Trailer
-                            </Button>
+                            <Box className={boxButton}>
+                                <Button className="button" size="small" color="primary">
+                                    Trailer
+                                </Button>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Box>
 
                 <VerticalTabs movieCinemaList={this.props.movieCinemaList}
-                    movieDetail={this.props.movieDetail} abc={123}></VerticalTabs>
+                    movieDetail={this.props.movieDetail}></VerticalTabs>
 
                 <Footer />
             </Container>

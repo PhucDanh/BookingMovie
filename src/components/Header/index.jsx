@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { NavLink } from "react-router-dom"
 import { AppBar, Toolbar, Typography, Button, IconButton, withStyles } from "@material-ui/core"
 import { Movie } from "@material-ui/icons"
 import { styles } from "./style"
+import { connect } from 'react-redux'
 
 class Header extends Component {
     render() {
@@ -17,12 +18,24 @@ class Header extends Component {
                         Booking Movie
                     </Typography>
                     <NavLink className={navLink} activeClassName={activeNavLink} component={Button} exact to="/">Home</NavLink>
-                    <NavLink className={navLink} activeClassName={activeNavLink} component={Button} exact to="/signin">Sign In</NavLink>
-                    <NavLink className={navLink} activeClassName={activeNavLink} component={Button} exact to="/signup">Sign Up</NavLink>
+
+                    {
+                        this.props.accountInfor ? (
+                            <span className={`${navLink} ${activeNavLink}`}>Hello, {this.props.accountInfor.hoTen}</span>
+                        ) : (
+                            <Fragment>
+                                <NavLink className={navLink} activeClassName={activeNavLink} component={Button} exact to="/signin">Sign In</NavLink>
+                                <NavLink className={navLink} activeClassName={activeNavLink} component={Button} exact to="/signup">Sign Up</NavLink>
+                            </Fragment>
+                        )
+                    }
+
                 </Toolbar>
             </AppBar>
         )
     }
 }
 
-export default withStyles(styles)(Header);
+const mapStateToProps = (state) => ({accountInfor: state.myAccount.accountInfor})
+
+export default connect(mapStateToProps)(withStyles(styles)(Header));

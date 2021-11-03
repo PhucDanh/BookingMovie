@@ -11,13 +11,12 @@ export const fetchMovieList = (dispatch) => {
             TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
         },
     }).then((res) => {
-        console.log(res.data.content);
         dispatch(createAction(
             actionType.SET_MOVIE_LIST,
             res.data.content
         ))
     }).catch((err) => {
-        console.log(err);
+        console.log("error fetchMovieList",{...err});
     })
 }
 
@@ -33,13 +32,12 @@ export const fetchMovieDetail = (id) => {
                 TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
             },
         }).then((res) => {
-            console.log(res.data.content);
             dispatch(createAction(
                 actionType.SET_MOVIE_DETAIL,
                 res.data.content
             ))
         }).catch((err) => {
-            console.log(err);
+            console.log("error fetchMovieDetail",{...err});
         })
     }
 }
@@ -52,13 +50,12 @@ export const fetchMovieBanner = (dispatch) => {
             TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
         },
     }).then((res) => {
-        console.log(res.data.content);
         dispatch(createAction(
             actionType.SET_MOVIE_BANNER,
             res.data.content
         ))
     }).catch((err) => {
-        console.log(err);
+        console.log("error fetchMovieBanner",{...err});
     })
 }
 
@@ -70,12 +67,11 @@ export const fetchMovieCinema = (dispatch) => {
             TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
         },
     }).then((res) => {
-        console.log(res.data.content);
         dispatch(createAction(
             actionType.SET_MOVIE_CINEMA,
             res.data.content
         ))
     }).catch((err) => {
-        console.log(err);
+        console.log("error fetchMovieCinema",{...err});
     })
 }

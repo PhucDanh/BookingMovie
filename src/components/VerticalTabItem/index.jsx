@@ -7,8 +7,6 @@ import { NavLink } from 'react-router-dom'
 import { createAction } from '../../store/action/action'
 import { actionType } from '../../store/type/type'
 import { connect } from 'react-redux'
-
-// check github
 class VerticalTabItem extends Component {
     constructor(props) {
         super(props);

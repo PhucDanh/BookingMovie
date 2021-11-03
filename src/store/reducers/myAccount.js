@@ -1,13 +1,17 @@
 import { actionType } from "../type/type";
 
 const initialState = {
-    movieList : {}
+    ticketDetail : {},
+    accountInfor: {}
 };
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionType.SET_TICKET_DETAIL:
-            state.movieList = {...action.payload};
+            state.ticketDetail = {...action.payload};
+            return {...state};
+        case actionType.SET_ME:
+            state.accountInfor = {...action.payload};
             return {...state};
         default: 
             return state;

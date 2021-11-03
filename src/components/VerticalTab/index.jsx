@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Box, Typography, Tab, Tabs, Avatar } from '@material-ui/core';
 import VerticalTabItem from '../VerticalTabItem';
+import { Alert } from '@material-ui/lab';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -84,7 +85,7 @@ export default class VerticalTab extends Component {
                                             color: "#ff6347",
                                             fontSize: "25px",
                                             fontStyle: "italic",
-                                            fontWeight: "900"
+                                            fontWeight: "900",
                                         }}
                                     >{item.diaChi}</Typography>
                                     <VerticalTabItem 
@@ -97,7 +98,7 @@ export default class VerticalTab extends Component {
                             )
                         } else return (
                             <TabPanel key={i} value={this.state.value} index={i} >
-                                <Typography>Không có suất chiếu</Typography>
+                                <Alert severity="info">Không có suất chiếu !!!</Alert>
                             </TabPanel>
                         );
                     })
