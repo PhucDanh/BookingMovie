@@ -53,6 +53,7 @@ class VerticalTabItem extends Component {
             ))
         }
     }
+    
 
     handleCloseAlert = () => {
         this.setState({
