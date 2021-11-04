@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
 import { fetchMovieCinema, fetchMovieDetail } from '../../store/action/movie';
 import { connect } from "react-redux"
-import { Box, CardActionArea, CardMedia, Container, Grid, Typography, withStyles, Button, CardContent } from '@material-ui/core';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import { Box, CardActionArea, CardMedia, Grid, Typography, withStyles, Button, CardContent } from '@material-ui/core';
 import { styles } from "./style"
 import { Description } from "@material-ui/icons"
 import VerticalTabs from '../../components/VerticalTabs';
+import Layout from '../../HOCs/Layout';
 
 class Detail extends Component {
     render() {
         const { hinhAnh, maPhim, moTa, tenPhim } = this.props.movieDetail;
         const { detail, detailContent, boxButton } = this.props.classes;
         return (
-            <Container>
-                <Header />
-
+            <Layout>
                 <Box className={detail}>
                     <Grid container spacing={12}>
                         <Grid item xs={6} md={6} >
@@ -44,13 +41,12 @@ class Detail extends Component {
                             </Box>
                         </Grid>
                     </Grid>
+                    <VerticalTabs movieCinemaList={this.props.movieCinemaList}
+                        movieDetail={this.props.movieDetail}></VerticalTabs>
                 </Box>
 
-                <VerticalTabs movieCinemaList={this.props.movieCinemaList}
-                    movieDetail={this.props.movieDetail}></VerticalTabs>
 
-                <Footer />
-            </Container>
+            </Layout>
         )
     }
 

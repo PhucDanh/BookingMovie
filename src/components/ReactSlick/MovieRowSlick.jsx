@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
 import { Container, Grid } from '@material-ui/core';
 import Slider from 'react-slick';
-import styleSlick from "./RowSlick.css"
+// import styleSlick from "./RowSlick.css"
 import MovieItem2 from '../MovieItem2';
 
 export default class MovieRowSlick extends Component {
 
-    SampleNextArrow = (props) => {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={`${className} ${styleSlick['slick-next']}`}
-                style={{ ...style }}
-                onClick={onClick}
-            />
-        );
-    }
+    // SampleNextArrow = (props) => {
+    //     const { className, style, onClick } = props;
+    //     return (
+    //         <div
+    //             className={`${className} ${styleSlick['slick-next']}`}
+    //             style={{ ...style }}
+    //             onClick={onClick}
+    //         />
+    //     );
+    // }
 
-    SamplePrevArrow = (props) => {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={`${className} ${styleSlick['slick-prev']}`}
-                style={{ ...style, left:"-35px" }}
-                onClick={onClick}
-            />
-        );
-    }
+    // SamplePrevArrow = (props) => {
+    //     const { className, style, onClick } = props;
+    //     return (
+    //         <div
+    //             className={`${className} ${styleSlick['slick-prev']}`}
+    //             style={{ ...style, left:"-35px" }}
+    //             onClick={onClick}
+    //         />
+    //     );
+    // }
 
     render() {
         const settings = {
@@ -39,8 +39,8 @@ export default class MovieRowSlick extends Component {
             autoplaySpeed: 2000,
             cssEase: "linear",
             // variableWidth: true,
-            nextArrow: <this.SampleNextArrow />,
-            prevArrow: <this.SamplePrevArrow />,
+            // nextArrow: <this.SampleNextArrow />,
+            // prevArrow: <this.SamplePrevArrow />,
             responsive: [
                 {
                     breakpoint: 1200,

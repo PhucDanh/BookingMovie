@@ -1,11 +1,11 @@
-import axios from "axios";
 import { actionType } from "../type/type";
 import { createAction } from "../action/action"
+import { request } from "../../api/request";
 
 
 export const signIn = (userLogin, callBack) => {
     return (dispatch) => {
-        axios({
+        request({
             method: "POST",
             url: "https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
             data: userLogin,
@@ -18,7 +18,7 @@ export const signIn = (userLogin, callBack) => {
                 actionType.SET_ME,
                 res.data.content
             ));
-            localStorage.setItem("token", res.data.accessToken);
+            localStorage.setItem("tokenSignIn", res.data.content.accessToken);
             callBack();
         }).catch((err) => {
             console.log("error sign in",{...err});
@@ -27,12 +27,20 @@ export const signIn = (userLogin, callBack) => {
     }
 }
 
-export const fetchMe = (dispatch) => {
+export const fetchMe = async (dispatch) => {
     try {
-        const res = axios({
+        const res = await request({
             method: "POST",
-            url: "https://elearning0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinNguoiDung",
+            url: "https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayThongTinNguoiDung",
+            params: {
+                taiKhoan: "danhngo2302"
+            },
+            headers: {
+                TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
+                Authorization: "Bearer " + localStorage.getItem("tokenSignIn"),
+            },
         });
+        console.log(res);
         dispatch(createAction(
             actionType.SET_ME,
             res.data

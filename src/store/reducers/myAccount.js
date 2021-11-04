@@ -2,7 +2,7 @@ import { actionType } from "../type/type";
 
 const initialState = {
     ticketDetail : {},
-    accountInfor: {}
+    accountInfor: null
 };
 
 const reducer = (state = initialState, action) => {

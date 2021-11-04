@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Container, TextField, Button, withStyles } from '@material-ui/core'
 import Header from '../../components/Header'
 import { styles } from "./style"
@@ -61,7 +61,7 @@ class SignUp extends Component {
     render() {
         const { formInput } = this.props.classes;
         return (
-            <Fragment>
+            <Container maxWidth="lg" style={{padding: "0px" }}>
                 <Header />
                 <Container maxWidth="sm">
                     <h1>Đăng Ký</h1>
@@ -91,7 +91,7 @@ class SignUp extends Component {
                         </div>
                     </form>
                 </Container>
-            </Fragment>
+            </Container>
         )
     }
 }

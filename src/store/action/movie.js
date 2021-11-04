@@ -1,16 +1,14 @@
-import axios from "axios";
+import { request } from "../../api/request";
 import { actionType } from "../type/type";
 import { createAction } from "./action"
 
 // async action
 export const fetchMovieList = (dispatch) => {
-    axios({
+    request({
         method: "GET",
         url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
-        headers: {
-            TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
-        },
     }).then((res) => {
+        console.log("res fetchMovieList", res.data);
         dispatch(createAction(
             actionType.SET_MOVIE_LIST,
             res.data.content
@@ -22,16 +20,14 @@ export const fetchMovieList = (dispatch) => {
 
 export const fetchMovieDetail = (id) => {
     return (dispatch) => {
-        axios({
+        request({
             method: "GET",
             url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim",
             params: {
                 MaPhim: id
             },
-            headers: {
-                TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
-            },
         }).then((res) => {
+            console.log("res fetchMovieDetail", res.data);
             dispatch(createAction(
                 actionType.SET_MOVIE_DETAIL,
                 res.data.content
@@ -43,13 +39,11 @@ export const fetchMovieDetail = (id) => {
 }
 
 export const fetchMovieBanner = (dispatch) => {
-    axios({
+    request({
         method: "GET",
         url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachBanner",
-        headers: {
-            TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
-        },
     }).then((res) => {
+        console.log("res fetchMovieBanner", res.data);
         dispatch(createAction(
             actionType.SET_MOVIE_BANNER,
             res.data.content
@@ -60,13 +54,11 @@ export const fetchMovieBanner = (dispatch) => {
 }
 
 export const fetchMovieCinema = (dispatch) => {
-    axios({
+    request({
         method: "GET",
         url: "https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01",
-        headers: {
-            TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
-        },
     }).then((res) => {
+        console.log("res fetchMovieCinema", res.data);
         dispatch(createAction(
             actionType.SET_MOVIE_CINEMA,
             res.data.content

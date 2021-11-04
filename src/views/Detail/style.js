@@ -1,7 +1,7 @@
 export const styles = () => {
     return {
         detail: {
-            margin: "50px auto"
+            margin: "50px 30px"
         },
         detailContent: {
             margin: "50px auto",

@@ -29,7 +29,6 @@ class Header extends Component {
                             </Fragment>
                         )
                     }
-
                 </Toolbar>
             </AppBar>
         )

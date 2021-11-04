@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { TextField, Container, Button } from '@material-ui/core'
 import Header from "../../components/Header"
 import { signIn } from '../../store/action/auth';
@@ -43,7 +43,7 @@ class SignIn extends Component {
 
     render() {
         return (
-            <Fragment>
+            <Container maxWidth="lg" style={{padding: "0px" }}>
                 <Header></Header>
                 <h1 style={{ textAlign: "center" }}>Đăng Nhập</h1>
                 <Container maxWidth="sm">
@@ -78,7 +78,7 @@ class SignIn extends Component {
                         </div>
                     </form>
                 </Container>
-            </Fragment>
+            </Container>
         )
     }
 }
