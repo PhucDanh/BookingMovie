@@ -67,3 +67,37 @@ export const fetchMovieCinema = (dispatch) => {
         console.log("error fetchMovieCinema",{...err});
     })
 }
+
+export const fetchCinemaListSeat = (maLichChieu) => {
+    return (dispatch) => {
+        request({
+            method: "GET",
+            url: "https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe",
+            params: {
+                MaLichChieu: maLichChieu
+            },
+        }).then((res) => {
+            console.log("res fetchCinemaListSeat", res.data);
+            dispatch(createAction(
+                actionType.SET_CINEMA_LIST_SEAT,
+                res.data.content
+            ))
+        }).catch((err) => {
+            console.log("error fetchCinemaListSeat",{...err});
+        })
+    }
+}
+
+export const postDatVe = (contentData) => {
+    return (dispatch) => {
+        request({
+            method: "POST",
+            url: "https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/DatVe",
+            data: contentData
+        }).then((res) => {
+            console.log("res postDatVe", res.data);
+        }).catch((err) => {
+            console.log("error postDatVe",{...err});
+        })
+    }
+}

@@ -15,7 +15,7 @@ class Detail extends Component {
             <Layout>
                 <Box className={detail}>
                     <Grid container spacing={12}>
-                        <Grid item xs={6} md={6} >
+                        <Grid item xs={12} md={6} >
                             <CardActionArea>
                                 <CardMedia
                                     style={{ height: 700, width: 500, margin: "auto" }}
@@ -44,8 +44,6 @@ class Detail extends Component {
                     <VerticalTabs movieCinemaList={this.props.movieCinemaList}
                         movieDetail={this.props.movieDetail}></VerticalTabs>
                 </Box>
-
-
             </Layout>
         )
     }

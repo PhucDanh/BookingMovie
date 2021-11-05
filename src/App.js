@@ -5,11 +5,11 @@ import Home from './views/Home';
 import Detail from './views/Detail';
 import SignIn from './views/Signin';
 import SignUp from './views/Signup';
-import Booking from './views/Booking'
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import BookingSeat from './views/BookingSeat';
+import { BrowserRouter, Switch } from "react-router-dom"
 import { connect } from 'react-redux';
 import { fetchMe } from './store/action/auth';
-import { AuthRoute, PrivateRoute } from './HOCs/Route';
+import { AuthRoute, NormalRoute, PrivateRoute } from './HOCs/Route';
 
 class App extends Component {
 
@@ -19,11 +19,11 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/detail/:id" component={Detail}/>
-          <AuthRoute path="/signin" redirectPath="/" component={SignIn}/>
-          <AuthRoute path="/signup" redirectPath="/" component={SignUp}/>
-          <Route path="/booking" component={Booking}/>
-          <PrivateRoute path="/" redirectPath="/signin" component={Home}/>
+          <NormalRoute path="/detail/:id" redirectPath="/" component={Detail} />
+          <NormalRoute path="/booking/:maLichChieu" redirectPath="/" component={BookingSeat} />
+          <AuthRoute path="/signin" redirectPath="/" component={SignIn} />
+          <AuthRoute path="/signup" redirectPath="/" component={SignUp} />
+          <PrivateRoute path="/" redirectPath="/signin" component={Home} />
         </Switch>
       </BrowserRouter>
     )
@@ -32,7 +32,7 @@ class App extends Component {
   componentDidMount() {
     localStorage.setItem("tokenCyberSoft", this.tokenCyberSoft);
     const tokenSignIn = localStorage.getItem("tokenSignIn");
-    if(tokenSignIn) {
+    if (tokenSignIn) {
       this.props.dispatch(fetchMe);
     }
   }

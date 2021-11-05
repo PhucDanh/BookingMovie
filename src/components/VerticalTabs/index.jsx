@@ -55,7 +55,7 @@ class VerticalTabs extends Component {
         // const { tabs } = this.props.classes;
         return (
             <Box
-                sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 500 }}
+                sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 500, marginTop:"40px" }}
             >
                 <Tabs
                     orientation="vertical"

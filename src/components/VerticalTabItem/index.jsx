@@ -12,7 +12,7 @@ class VerticalTabItem extends Component {
         super(props);
         this.state = {
             selectedValue: -1,
-            alertState: false
+            alertState: false,
         }
     }
 
@@ -29,8 +29,6 @@ class VerticalTabItem extends Component {
     }
 
     handleBooking = () => {
-        console.log("booking detail", this.props.lichPhimDaChon[this.state.selectedValue])
-        console.log("booking detail2", this.props.lichPhimDaChon)
         if (this.state.selectedValue === -1) {
             this.setState({
                 alertState: true
@@ -90,7 +88,7 @@ class VerticalTabItem extends Component {
                                 Đặt vé
                             </Button>
                         ) : (
-                            <NavLink className="link" to={"/booking/"}>
+                            <NavLink className="link" to={`/booking/${lstLichChieuTheoPhim[this.state.selectedValue].maLichChieu}`}>
                                 <Button onClick={this.handleBooking} className="buttonItem" color="secondary" variant="outlined" startIcon={<Shop />}>
                                     Đặt vé
                                 </Button>

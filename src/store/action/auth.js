@@ -31,19 +31,12 @@ export const fetchMe = async (dispatch) => {
     try {
         const res = await request({
             method: "POST",
-            url: "https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayThongTinNguoiDung",
-            params: {
-                taiKhoan: "danhngo2302"
-            },
-            headers: {
-                TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
-                Authorization: "Bearer " + localStorage.getItem("tokenSignIn"),
-            },
+            url: "https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan",
         });
         console.log(res);
         dispatch(createAction(
             actionType.SET_ME,
-            res.data
+            res.data.content
         ));
     } catch (err) {
         console.log("error get user infor",{...err})

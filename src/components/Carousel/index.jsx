@@ -7,7 +7,7 @@ import ItemCarousel from './ItemCarousel'
 class CarouselBanner extends Component {
     render() {
         return (
-            <Carousel autoPlay="false">
+            <Carousel>
                 {
                     this.props.movieBanner.map((item) => {
                         return (

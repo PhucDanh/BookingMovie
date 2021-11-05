@@ -5,6 +5,8 @@ const initialState = {
     movieDetail: {},
     movieBanner: [],
     movieCinemaList: [],
+    thongTinPhim: {},
+    danhSachGhe: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,9 +20,13 @@ const reducer = (state = initialState, action) => {
         case actionType.SET_MOVIE_BANNER:
             state.movieBanner = [...action.payload];
             return {...state};
-            case actionType.SET_MOVIE_CINEMA:
-                state.movieCinemaList = [...action.payload];
-                return {...state};
+        case actionType.SET_MOVIE_CINEMA:
+            state.movieCinemaList = [...action.payload];
+            return {...state};
+        case actionType.SET_CINEMA_LIST_SEAT:
+            state.thongTinPhim = {...action.payload.thongTinPhim};
+            state.danhSachGhe = [...action.payload.danhSachGhe];
+            return {...state};
         default: 
             return state;
     }

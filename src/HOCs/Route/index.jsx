@@ -24,3 +24,4 @@ const createRoute = (condition) => {
 
 export const AuthRoute = createRoute(() => !localStorage.getItem("tokenSignIn"));
 export const PrivateRoute = createRoute(() => localStorage.getItem("tokenSignIn"));
+export const NormalRoute = createRoute(() => localStorage.getItem("tokenSignIn"));
