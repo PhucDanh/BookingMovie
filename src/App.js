@@ -10,6 +10,7 @@ import { BrowserRouter, Switch } from "react-router-dom"
 import { connect } from 'react-redux';
 import { fetchMe } from './store/action/auth';
 import { AuthRoute, NormalRoute, PrivateRoute } from './HOCs/Route';
+import MyAccount from './views/MyAccount';
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <NormalRoute path="/detail/:id" redirectPath="/" component={Detail} />
+          <NormalRoute path="/myAccount" redirectPath="/" component={MyAccount} />
           <NormalRoute path="/booking/:maLichChieu" redirectPath="/" component={BookingSeat} />
           <AuthRoute path="/signin" redirectPath="/" component={SignIn} />
           <AuthRoute path="/signup" redirectPath="/" component={SignUp} />

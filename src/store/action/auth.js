@@ -33,7 +33,7 @@ export const fetchMe = async (dispatch) => {
             method: "POST",
             url: "https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan",
         });
-        console.log(res);
+        console.log("res fetchMe",res);
         dispatch(createAction(
             actionType.SET_ME,
             res.data.content

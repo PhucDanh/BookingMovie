@@ -28,11 +28,11 @@ class MovieItem2 extends Component {
         const { card, cardActions, cardActionArea, cardActionAreaHover } = this.props.classes;
         return (
             <div>
-                <Card className={card}>
+                <Card className={card} style={{ maxWidth: 350 }}>
                     <CardActionArea className={cardActionArea}>
                         <CardMedia
                             className="cardMedia"
-                            style={{ height: 400, width: 400 }}
+                            style={{ height: 400 }}
                             image={hinhAnh}
                         />
                         <CardContent className="cardContent">
