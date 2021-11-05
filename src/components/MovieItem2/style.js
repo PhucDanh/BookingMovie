@@ -19,7 +19,7 @@ export const styles = () => {
                 border: "1px solid #fff",
                 /*outline bỏ đường viền của trình duyệt */
                 outline: "none",
-                padding: "10px 80px",
+                padding: "10px 35px",
                 borderRadius: "5px",
                 transition: "all .5s",
                 "&:hover": {

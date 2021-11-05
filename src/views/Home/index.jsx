@@ -10,7 +10,6 @@ import { styles } from './style'
 import Layout from '../../HOCs/Layout'
 
 class Home extends Component {
-
     render() {
         const { textTitle, icon } = this.props.classes;
         return (
