@@ -34,7 +34,7 @@ export const styles = () => {
                         backgroundColor: "white",
                     }
                 },
-                "& .link": { 
+                "& .link": {
                     textDecoration: "none",
                 },
                 "& .listItem": {
@@ -42,7 +42,7 @@ export const styles = () => {
                     backgroundColor: "#5D6D7E",
                     textAlign: "center",
                     "& .listText": {
-                        margin:"5px auto",
+                        margin: "5px auto",
                         color: "#D2B4DE",
                         fontSize: "20px",
                         fontWeight: "800",

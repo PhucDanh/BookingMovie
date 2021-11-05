@@ -14,7 +14,7 @@ export const fetchMovieList = (dispatch) => {
             res.data.content
         ))
     }).catch((err) => {
-        console.log("error fetchMovieList",{...err});
+        console.log("error fetchMovieList", { ...err });
     })
 }
 
@@ -33,7 +33,7 @@ export const fetchMovieDetail = (id) => {
                 res.data.content
             ))
         }).catch((err) => {
-            console.log("error fetchMovieDetail",{...err});
+            console.log("error fetchMovieDetail", { ...err });
         })
     }
 }
@@ -49,7 +49,7 @@ export const fetchMovieBanner = (dispatch) => {
             res.data.content
         ))
     }).catch((err) => {
-        console.log("error fetchMovieBanner",{...err});
+        console.log("error fetchMovieBanner", { ...err });
     })
 }
 
@@ -64,7 +64,7 @@ export const fetchMovieCinema = (dispatch) => {
             res.data.content
         ))
     }).catch((err) => {
-        console.log("error fetchMovieCinema",{...err});
+        console.log("error fetchMovieCinema", { ...err });
     })
 }
 
@@ -83,7 +83,7 @@ export const fetchCinemaListSeat = (maLichChieu) => {
                 res.data.content
             ))
         }).catch((err) => {
-            console.log("error fetchCinemaListSeat",{...err});
+            console.log("error fetchCinemaListSeat", { ...err });
         })
     }
 }
@@ -97,7 +97,7 @@ export const postDatVe = (contentData) => {
         }).then((res) => {
             console.log("res postDatVe", res.data);
         }).catch((err) => {
-            console.log("error postDatVe",{...err});
+            console.log("error postDatVe", { ...err });
         })
     }
 }

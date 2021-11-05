@@ -15,7 +15,6 @@ class Header extends Component {
             anchorEl: undefined
         }
     }
-    // open = Boolean(this.state.anchorEl);
 
     handleClick = (event) => {
         this.setState({
@@ -23,20 +22,17 @@ class Header extends Component {
         });
     };
 
-    handleClose = () => {
-        this.setState({
-            anchorEl: null
-        });
-    };
     handleLogOut = () => {
-        this.setState({
-            anchorEl: null
-        });
         localStorage.removeItem("tokenSignIn");
         this.props.dispatch(createAction(
             actionType.SET_ME,
             {}
         ))
+    };
+    handleClose = () => {
+        this.setState({
+            anchorEl: null
+        });
     };
 
     render() {
@@ -79,13 +75,17 @@ class Header extends Component {
                                         'aria-labelledby': 'basic-button',
                                     }}
                                 >
-                                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={this.handleClose}>My Ticket</MenuItem>
-                                    <MenuItem onClick={this.handleLogOut}>Logout</MenuItem>
+                                    <MenuItem onClick={this.handleMyProfile}>
+                                        <NavLink style={{ textDecoration: "none" }} exact to="/myAccount">My Profile</NavLink>
+                                    </MenuItem>
+                                    <MenuItem onClick={this.handleLogOut}>
+                                        <NavLink style={{ textDecoration: "none" }} exact to="/signin">Logout</NavLink>
+                                    </MenuItem>
+                                    <MenuItem onClick={this.handleClose}>
+                                        <NavLink style={{ textDecoration: "none" }} exact to="/">Close</NavLink>
+                                    </MenuItem>
                                 </Menu>
                             </Fragment>
-
-                            // <span className={`${navLink} ${activeNavLink}`}>Hello, {this.props.accountInfor.hoTen}</span>
                         ) : (
                             <Fragment>
                                 <NavLink className={navLink} activeClassName={activeNavLink} component={Button} exact to="/signin">Đăng nhập</NavLink>

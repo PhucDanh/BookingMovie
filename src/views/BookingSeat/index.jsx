@@ -61,15 +61,12 @@ class BookingSeat extends Component {
     }
 
     handlePaymentAlert = () => {
-        var confirm = false;
-        if (!(this.state.filledEmail & this.state.filledPhone & this.state.filledPayment & this.state.selectedSeat)) {
-            confirm = true;
-        } else {
+        if (this.state.filledEmail & this.state.filledPhone & this.state.filledPayment & this.state.selectedSeat) {
             console.log("dataPOST", this.state.dataPOST);
             this.props.dispatch(postDatVe(this.state.dataPOST));
         }
         this.setState({
-            alertState: confirm
+            alertState: true
         })
     }
 
@@ -143,6 +140,59 @@ class BookingSeat extends Component {
             }
         });
         return seatButtons;
+    }
+
+    renderDialogContent = () => {
+        if (this.state.filledEmail & this.state.filledPhone & this.state.filledPayment & this.state.selectedSeat) {
+            console.log("Right all");
+            return (
+                <Dialog
+                    open={this.state.alertState}
+                    onClose={this.handleCloseAlert}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        Thanh toán thành công !!!
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Để kiểm tra vé vui lòng truy cập "My Profile"
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <NavLink style={{ textDecoration: "none" }} exact to="/">
+                            <Button onClick={this.handleCloseAlert} autoFocus>
+                                Đóng
+                            </Button>
+                        </NavLink>
+                    </DialogActions>
+                </Dialog>
+            )
+        } else {
+            return (
+                <Dialog
+                    open={this.state.alertState}
+                    onClose={this.handleCloseAlert}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        Bạn có bỏ quên điều gì không?
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Xin hãy chọn chỗ ngồi và điền đầy đủ thông tin cá nhân trước khi thanh toán. Xin cảm ơn S2 !!!
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleCloseAlert} autoFocus>
+                            Đóng
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            )
+        }
     }
 
     render() {
@@ -249,67 +299,40 @@ class BookingSeat extends Component {
                                 </Grid>
                             </Box>
                             <Box className="boxItem">
-                                <Grid container style={{marginBottom: "10px"}}>
+                                <Grid container style={{ marginBottom: "10px" }}>
                                     <Grid item xs={2}>
-                                        <Typography style={{backgroundColor: "#E74C3C", width: "35px", height: "35px"}}></Typography>
+                                        <Typography style={{ backgroundColor: "#E74C3C", width: "35px", height: "35px" }}></Typography>
                                     </Grid>
                                     <Grid item xs={10}>
-                                        <Typography style={{paddingTop:"6px"}}>Ghế đã đặt</Typography>
+                                        <Typography style={{ paddingTop: "6px" }}>Ghế đã đặt</Typography>
                                     </Grid>
                                 </Grid>
-                                <Grid container style={{marginBottom: "10px"}}>
+                                <Grid container style={{ marginBottom: "10px" }}>
                                     <Grid item xs={2}>
-                                        <Typography style={{backgroundColor: "#2ECC71", width: "35px", height: "35px"}}></Typography>
+                                        <Typography style={{ backgroundColor: "#2ECC71", width: "35px", height: "35px" }}></Typography>
                                     </Grid>
                                     <Grid item xs={10}>
-                                        <Typography style={{paddingTop:"6px"}}>Ghế đang chọn </Typography>
+                                        <Typography style={{ paddingTop: "6px" }}>Ghế đang chọn </Typography>
                                     </Grid>
                                 </Grid>
-                                <Grid container style={{marginBottom: "10px"}}>
+                                <Grid container style={{ marginBottom: "10px" }}>
                                     <Grid item xs={2}>
-                                        <Typography style={{backgroundColor: "#7F8C8D", width: "35px", height: "35px"}}></Typography>
+                                        <Typography style={{ backgroundColor: "#7F8C8D", width: "35px", height: "35px" }}></Typography>
                                     </Grid>
                                     <Grid item xs={10}>
-                                        <Typography style={{paddingTop:"6px"}}>Ghế chưa đặt </Typography>
+                                        <Typography style={{ paddingTop: "6px" }}>Ghế chưa đặt </Typography>
                                     </Grid>
                                 </Grid>
                             </Box>
                         </Grid>
                     </Grid>
                     <Box className={boxPayButton}>
+                        <Button onClick={this.handlePaymentAlert} className="button" size="small" color="primary">
+                            Thanh Toán
+                        </Button>
                         {
-                            (this.state.filledEmail & this.state.filledPhone & this.state.filledPayment & this.state.selectedSeat) ? (
-                                <NavLink style={{ textDecoration: "none" }} to={"/"}>
-                                    <Button onClick={this.handlePaymentAlert} className="button" size="small" color="primary">
-                                        Thanh Toán
-                                    </Button>
-                                </NavLink>
-                            ) : (
-                                <Button onClick={this.handlePaymentAlert} className="button" size="small" color="primary">
-                                    Thanh Toán
-                                </Button>
-                            )
+                            this.renderDialogContent()
                         }
-                        <Dialog
-                            open={this.state.alertState}
-                            onClose={this.handleCloseAlert}
-                            aria-labelledby="alert-dialog-title"
-                            aria-describedby="alert-dialog-description"
-                        >
-                            <DialogTitle id="alert-dialog-title">
-                                {"Bạn có bỏ quên điều gì không?"}
-                            </DialogTitle>
-                            <DialogContent>
-                                <DialogContentText id="alert-dialog-description">
-                                    Xin hãy chọn chỗ ngồi và điền đầy đủ thông tin cá nhân trước khi thanh toán. Xin cảm ơn S2 !!!
-                                </DialogContentText>
-                            </DialogContent>
-                            <DialogActions>
-                                <Button onClick={this.handleCloseAlert} autoFocus>
-                                    Đóng
-                                </Button>
-                            </DialogActions>
-                        </Dialog>
                     </Box>
                 </Box>
             </Layout>

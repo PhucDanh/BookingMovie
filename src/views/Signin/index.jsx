@@ -16,7 +16,7 @@ class SignIn extends Component {
     }
 
     handleChange = (event) => {
-        console.log(event.target.name , event.target.value);
+        console.log(event.target.name, event.target.value);
         this.setState({
             formSignIn: {
                 ...this.state.formSignIn,
@@ -43,7 +43,7 @@ class SignIn extends Component {
 
     render() {
         return (
-            <Container maxWidth="lg" style={{padding: "0px" }}>
+            <Container maxWidth="lg" style={{ padding: "0px" }}>
                 <Header></Header>
                 <h1 style={{ textAlign: "center" }}>Đăng Nhập</h1>
                 <Container maxWidth="sm">
@@ -56,7 +56,7 @@ class SignIn extends Component {
                                 fullWidth
                                 label="Tài khoản"
                                 variant="outlined"
-                                />
+                            />
                         </div>
                         <div style={{ marginBottom: 30 }}>
                             <TextField
@@ -66,6 +66,7 @@ class SignIn extends Component {
                                 fullWidth
                                 label="Mật khẩu"
                                 variant="outlined"
+                                type="password"
                             />
                         </div>
                         <div>

@@ -8,6 +8,7 @@ import AccountInfor from '../../components/AccountInfor';
 import MyTicket from '../../components/MyTicket';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import { fetchMe } from '../../store/action/auth';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -97,13 +98,19 @@ class MyAccount extends Component {
                 {
                     thongTinDatVe.map((item, i) => {
                         return (
-                            <TabPanel key={i} value={this.state.value} index={i} style={{margin: "30px"}} >
+                            <TabPanel key={i} value={this.state.value} index={i} style={{ margin: "30px" }} >
                                 <MyTicket hoTen={hoTen} email={email} thongTinTungVe={item}></MyTicket>
                             </TabPanel>
                         )
                     })
                 }
             </Box>
+        )
+    }
+
+    renderAccountInfor = (account) => {
+        return (
+            <AccountInfor account={account}></AccountInfor>
         )
     }
 
@@ -128,14 +135,14 @@ class MyAccount extends Component {
                                         src="https://picsum.photos/200"
                                         style={{ width: "250px", height: "250px", marginBottom: "20px" }}
                                     />
-                                    <Typography variant="h4" color="secondary"
+                                    {/* <Typography variant="h4" color="secondary"
                                         style={{
                                             fontWeight: "bold",
                                             margin: "10px auto",
                                             textAlign: "center"
                                         }}>
-                                        Ngo Phuc Danh
-                                    </Typography>
+                                        {hoTen}
+                                    </Typography> */}
                                 </div>
                             </Box>
                             <Box className="boxItem">
@@ -174,7 +181,7 @@ class MyAccount extends Component {
                         <div style={{ margin: "5px" }}>
                             {
                                 (this.state.selectedInfor) ? (
-                                    <AccountInfor></AccountInfor>
+                                    this.renderAccountInfor(this.props.accountInfor)
                                 ) : (() => { return null })
                             }
                             {
@@ -188,9 +195,8 @@ class MyAccount extends Component {
             </Container>
         )
     }
-
     componentDidMount() {
-
+        this.props.dispatch(fetchMe);
     }
 }
 

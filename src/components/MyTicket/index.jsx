@@ -75,7 +75,7 @@ class MyTicket extends Component {
                             <Typography style={{ color: "#AED6F1", fontWeight: "800" }}>Giá vé</Typography>
                         </Grid>
                         <Grid item xs={6}>
-                            <Typography>: {thongTinTungVe.giaVe*thongTinTungVe.danhSachGhe.length +" VND"}</Typography>
+                            <Typography>: {thongTinTungVe.giaVe * thongTinTungVe.danhSachGhe.length + " VND"}</Typography>
                         </Grid>
                     </Grid>
                 </CardContent>
