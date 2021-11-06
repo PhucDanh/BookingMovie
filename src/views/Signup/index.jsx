@@ -3,6 +3,7 @@ import { Container, TextField, Button, withStyles } from '@material-ui/core'
 import Header from '../../components/Header'
 import { styles } from "./style"
 import axios from 'axios';
+import { Modal } from 'react-responsive-modal';
 
 class SignUp extends Component {
     constructor(props) {
@@ -15,8 +16,16 @@ class SignUp extends Component {
                 soDt: "",
                 email: "",
                 maNhom: "GP01"
-            }
-        }
+            },
+            open: false,
+            apiResult: ""
+        };
+    }
+
+    onCloseModal = () => {
+        this.setState({
+            open: false
+        })
     }
 
     handleChange = (event) => {
@@ -39,9 +48,17 @@ class SignUp extends Component {
                 TokenCybersoft: localStorage.getItem("tokenCyberSoft"),
             },
         }).then((res) => {
-            console.log(res);
+            console.log("res sign up", res);
+            this.setState({
+                apiResult: res.data.message + " Vui lòng chuyển sang đăng nhập",
+                open: true
+            });
         }).catch((err) => {
-            console.log({...err})
+            console.log("err sign up", { ...err });
+            this.setState({
+                apiResult: err.response.data.content + " Đăng kí thất bại!!!",
+                open: true
+            });
         })
     }
 
@@ -57,11 +74,11 @@ class SignUp extends Component {
             }
         })
     }
-        
+
     render() {
         const { formInput } = this.props.classes;
         return (
-            <Container maxWidth="lg" style={{padding: "0px" }}>
+            <Container maxWidth="lg" style={{ padding: "0px" }}>
                 <Header />
                 <Container maxWidth="sm">
                     <h1>Đăng Ký</h1>
@@ -91,6 +108,9 @@ class SignUp extends Component {
                         </div>
                     </form>
                 </Container>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <h2>{this.state.apiResult}</h2>
+                </Modal>
             </Container>
         )
     }
