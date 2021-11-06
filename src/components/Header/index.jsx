@@ -7,6 +7,7 @@ import { styles } from "./style"
 import { connect } from 'react-redux'
 import { actionType } from '../../store/type/type'
 import { createAction } from '../../store/action/action'
+import { fetchMe } from '../../store/action/auth'
 
 class Header extends Component {
     constructor(props) {
@@ -96,6 +97,10 @@ class Header extends Component {
                 </Toolbar>
             </AppBar>
         )
+    }
+
+    componentDidMount() {
+        this.props.dispatch(fetchMe);
     }
 }
 

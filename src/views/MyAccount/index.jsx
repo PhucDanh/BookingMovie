@@ -77,7 +77,7 @@ class MyAccount extends Component {
         const { hoTen, email, thongTinDatVe } = account;
         return (
             <Box
-                style={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 800, margin: "40px 10px 20px" }}
+                style={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 650, margin: "10px 10px 20px" }}
             >
                 <Tabs
                     orientation="vertical"
@@ -167,7 +167,7 @@ class MyAccount extends Component {
                                 </div>
                             </Box>
                             <Box className="boxItem">
-                                <div style={{ marginTop: "150px" }}>
+                                <div style={{ marginTop: "0px" }}>
                                     <NavLink className="link" to={"/"}>
                                         <Button className="button" size="small" color="primary">
                                             <Home style={{ fontSize: "40px" }}></Home>

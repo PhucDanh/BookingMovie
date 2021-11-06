@@ -13,7 +13,7 @@ export const styles = () => {
                 justifyContent: "center",
                 textAlign: "center",
                 alignItems: "center",
-                margin: "30px auto",
+                margin: "20px auto",
                 "& .button": {
                     // fontSize: "30px",
                     fontWeight: "800",

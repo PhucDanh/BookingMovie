@@ -27,42 +27,42 @@ class MyTicket extends Component {
                 />
                 <CardContent>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Typography style={{ color: "#AED6F1", fontWeight: "800" }}>Hệ thống rạp</Typography>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography>: {thongTinTungVe.danhSachGhe[0].tenHeThongRap}</Typography>
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Typography style={{ color: "#AED6F1", fontWeight: "800" }}>Tên rạp</Typography>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography>: {thongTinTungVe.danhSachGhe[0].tenRap}</Typography>
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Typography style={{ color: "#AED6F1", fontWeight: "800" }}>Tên phim</Typography>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography>: {thongTinTungVe.tenPhim}</Typography>
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Typography style={{ color: "#AED6F1", fontWeight: "800" }}>Thời luọng</Typography>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography>: {thongTinTungVe.thoiLuongPhim + " min"}</Typography>
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Typography style={{ color: "#AED6F1", fontWeight: "800" }}>Ghế</Typography>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography>: {
                                 thongTinTungVe.danhSachGhe.map((item) => {
                                     return "[" + item.tenGhe + "] ";
