@@ -71,10 +71,10 @@ class MyTicket extends Component {
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Typography style={{ color: "#AED6F1", fontWeight: "800" }}>Giá vé</Typography>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography>: {thongTinTungVe.giaVe * thongTinTungVe.danhSachGhe.length + " VND"}</Typography>
                         </Grid>
                     </Grid>
