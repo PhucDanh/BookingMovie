@@ -1,0 +1,17 @@
+* Document Movie: 
+	https://github.com/khaitruong1301/bookingticket_cybersoft
+	https://drive.google.com/.../1WeazH6nCuNcJN9.../view...
+* Link API Movie: 
+	https://movienew.cybersoft.edu.vn/swagger/index.html
+* Document Elearning:
+	https://github.com/khaitruong1301/elearning
+* Link API Elearning: 
+	https://elearningnew.cybersoft.edu.vn/swagger/index.html
+
+- Các bạn sẽ nộp dự. án thông qua git(recomend github).
+- Deploy app len một server,
+- Có phân công từng nhiệm vụ từng thành viên trong nhóm,
+- Sử dụng thành thạo git flow sẽ là điểm cộng(mỗi chức năng tạo 1 branch, xong mỗi chức năng tạo pull request vè nhánh chính, ... )
+
+Token: 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJGcm9udCBFbmQgNjciLCJIZXRIYW5TdHJpbmciOiIyMC8wMy8yMDIyIiwiSGV0SGFuVGltZSI6IjE2NDc3MzQ0MDAwMDAiLCJuYmYiOjE2MTc1NTU2MDAsImV4cCI6MTY0Nzg4MjAwMH0.adTs_7mDpRC34Pwdsgpu-EUnD_gW9Z8REnUnl05QysA
