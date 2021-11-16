@@ -1,3 +1,54 @@
+# Booking Movie Project
+
+## 1. About
+
+A Website implemented using ReactJS (Redux, axios, Material UI,...), which allows users to:
+
+* Sign-in/sign-up/logout
+* Book movie tickets online
+* Update user information
+* Manage booked ticket
+* Finding movie and watching trailer
+
+## 2. Snapshot of the website
+
+* Sign In Page
+
+![Sign In Page](images/SignIn.PNG)
+
+* Sign Up Page
+
+![Sign Up Page](images/SignUp.PNG)
+
+* Detail Page
+
+![Detail Page](images/DetailPage.png)
+
+* Booking Seat Page
+
+![Booking Seat Page](images/BookingSeatPage.png)
+
+* My Ticket Page
+
+![My Ticket Page](images/MyTicketPage.PNG)
+
+## 3. Notes
+
+* API backend for this web page is provided by Cybersoft Academy
+
+[API Backend](https://movienew.cybersoft.edu.vn/swagger/index.html)
+
+* When I finished Frontend Course in Cybersoft, API backend maybe not running due to Cybersoft's security
+* Video demo for this webpage is stored on my Google Drive
+
+[Video Demo Booking Movie](https://drive.google.com/drive/folders/1JuYoQ7MSG2-pVX9O_OSRd431-oDLqdOD?usp=sharing)
+
+## 4. Author Contact
+
+1. Facebook: https://www.facebook.com/phuc.danh.583
+2. Gmail: npdanh1512@gmail.com
+3. Linked in: https://www.linkedin.com/in/danh-ngo-068772225/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
